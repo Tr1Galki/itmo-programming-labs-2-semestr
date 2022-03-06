@@ -3,10 +3,18 @@ package mainLogic;
 import data.FuelType;
 import data.Vehicle;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class CollectionManager implements ICollectionManagerUnchanged, ICollectionManagerChanged{
+    private static final AtomicInteger currID = new AtomicInteger();
     private final HashSet<Vehicle> vehicleCollection = new HashSet<>();
     private final HashMap<String, String> commandList = new HashMap<>();
+
+    private final AskManager askManager = new AskManager();
+
+    private int getId(){
+        return currID.getAndIncrement();
+    }
 
     @Override
     public void help() {
@@ -87,16 +95,16 @@ public class CollectionManager implements ICollectionManagerUnchanged, ICollecti
     }
 
     @Override
-    public void add(Vehicle element) {
+    public void add() {
+        Vehicle element = new Vehicle(getId(), askManager.askName(), askManager.askCoordinates(), askManager.askEnginePower(), askManager.askType(), askManager.askFuelType());
         vehicleCollection.add(element);
-
     }
 
     @Override
     public void updateID(int id, Vehicle element) {
         for (Vehicle item: vehicleCollection) {
             if (item.getId() == id){
-                item.setId(element.getIdPlus());
+                item.setId(getId());
                 return;
             }
         }
@@ -143,7 +151,4 @@ public class CollectionManager implements ICollectionManagerUnchanged, ICollecti
         vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getFuelType().equals(fuelType)));//
         //NullPointerException!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     }
-
-
-
 }

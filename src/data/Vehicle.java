@@ -3,7 +3,6 @@ package data;
 import java.util.Date;
 
 public class Vehicle implements Comparable<Vehicle>{
-    static private int currID = 1;
 
     private int id; //Значение поля должно быть больше 0, Значение этого поля должно быть уникальным, Значение этого поля должно генерироваться автоматически
     private String name; //Поле не может быть null, Строка не может быть пустой
@@ -13,27 +12,19 @@ public class Vehicle implements Comparable<Vehicle>{
     private VehicleType type; //Поле может быть null
     private FuelType fuelType; //Поле может быть null
 
-    public Vehicle() {
-        this.id = currID++;
-        this.name = "1";
-        this.coordinates = new Coordinates(1, 1.0);
-        this.creationDate = new Date();
-        this.enginePower = 1;
-        this.type = VehicleType.CAR;
-        this.fuelType = FuelType.ELECTRICITY;
-    }
 
-    public int getIdPlus(){
-        int predID = currID++;
-        return predID;
+    public Vehicle(int id, String name, Coordinates coordinates, Integer enginePower, VehicleType type, FuelType fuelType) {
+        this.id = id;
+        this.name = name;
+        this.coordinates = coordinates;
+        this.creationDate = new Date();
+        this.enginePower = enginePower;
+        this.type = type;
+        this.fuelType = fuelType;
     }
 
     public Integer getEnginePower(){
         return enginePower;
-    }
-
-    public static int getCurrID() {
-        return currID;
     }
 
     public int getId() {
@@ -58,11 +49,6 @@ public class Vehicle implements Comparable<Vehicle>{
 
     public FuelType getFuelType() {
         return fuelType;
-    }
-
-
-    public static void setCurrID(int currID) {
-        Vehicle.currID = currID;
     }
 
     public void setId(int id) {
@@ -99,7 +85,8 @@ public class Vehicle implements Comparable<Vehicle>{
         return  "Vehicle{" +
                 "id = " + id +
                 "; name = " + name + '\'' +
-                "; coordinates = " + coordinates +
+                "; coordinates X = " + coordinates.getX() +
+                "; coordinates Y = " + coordinates.getY() +
                 "; creationDate = " + creationDate +
                 "; enginePower = " + enginePower +
                 "; type = " + type +

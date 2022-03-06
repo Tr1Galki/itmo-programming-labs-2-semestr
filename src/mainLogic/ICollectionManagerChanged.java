@@ -4,7 +4,7 @@ import data.FuelType;
 import data.Vehicle;
 
 public interface ICollectionManagerChanged {
-    void add(Vehicle element);
+    void add();
     void updateID(int id, Vehicle element);
     void removeByID(int id);
     void clear();

@@ -28,10 +28,6 @@ public class CommandManager implements ICommandManager{
             switch (command){
                 case "wrong": {
                     System.out.println("Wrong command. Please repeat");
-                    historyCollection.addFirst("wrong");
-                    if (historyCollection.size() == 6){
-                        historyCollection.removeLast();
-                    }
                     break;
                 }
                 case "help": {
@@ -65,7 +61,7 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "add":{
-                    //нужна обёртка для добавления
+                    mainCollection.add();
 
                     historyCollection.addFirst("add");
                     if (historyCollection.size() == 6){
@@ -109,7 +105,10 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "history":{
-                    // перенести из collection manager
+                    for (String item: historyCollection){
+                        System.out.println("- " + item);
+                    }
+
                     historyCollection.addFirst("history");
                     if (historyCollection.size() == 6){
                         historyCollection.removeLast();
@@ -241,6 +240,5 @@ public class CommandManager implements ICommandManager{
         }
         return "wrong";
     }
-
 
 }
