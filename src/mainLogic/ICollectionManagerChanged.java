@@ -1,14 +1,13 @@
 package mainLogic;
 
 import data.FuelType;
-import data.Vehicle;
 
 public interface ICollectionManagerChanged {
     void add();
-    void updateID(int id, Vehicle element);
+    void updateID(int id);
     void removeByID(int id);
     void clear();
-    void addIfMax(Vehicle element);
-    void removeGreater(Integer enginePower);
+    void addIfMax();
+    void removeGreater();
     void removeAllByFuelType(FuelType fuelType);
 }

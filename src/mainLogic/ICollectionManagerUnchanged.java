@@ -6,4 +6,6 @@ public interface ICollectionManagerUnchanged {
     void show();
     void countByEnginePower(Integer enginePower);
     void printDescending();
+    void save();
+    void executeScript(String fileName);
 }

@@ -39,6 +39,10 @@ public class Vehicle implements Comparable<Vehicle>{
         return coordinates;
     }
 
+    public long getCoordinateX() {
+        return coordinates.getX();
+    }
+
     public Date getCreationDate() {
         return creationDate;
     }

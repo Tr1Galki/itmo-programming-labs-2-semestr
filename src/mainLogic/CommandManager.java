@@ -1,5 +1,7 @@
 package mainLogic;
 
+import data.FuelType;
+
 import java.util.*;
 
 public class CommandManager implements ICommandManager{
@@ -17,7 +19,7 @@ public class CommandManager implements ICommandManager{
         commands:
         while (true){
 
-            System.out.println("write command:");
+            System.out.print("write command: ");
             input = scan.nextLine();
 
             List<String> wordList = new ArrayList<>(Arrays.asList(input.split(" ")));
@@ -79,7 +81,8 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "save":{
-                    //нужно сохранение
+                    mainCollection.save();
+
                     historyCollection.addFirst("save");
                     if (historyCollection.size() == 6){
                         historyCollection.removeLast();
@@ -87,7 +90,7 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "addIfMax":{
-                    //обёртка под add
+                    mainCollection.addIfMax();
 
                     historyCollection.addFirst("add_if_max");
                     if (historyCollection.size() == 6){
@@ -96,7 +99,7 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "removeGreater":{
-                    //обёртка под ввод файла
+                    mainCollection.removeGreater();
 
                     historyCollection.addFirst("remove_greater");
                     if (historyCollection.size() == 6){
@@ -125,7 +128,7 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "updateID":{
-                    //обёртка под элемент
+                    mainCollection.updateID(Integer.parseInt(wordList.get(1)));
 
                     historyCollection.addFirst("update_id");
                     if (historyCollection.size() == 6){
@@ -143,6 +146,7 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "executeScript":{
+                    mainCollection.executeScript(wordList.get(1));
 
                     historyCollection.addFirst("execute_script");
                     if (historyCollection.size() == 6){
@@ -151,6 +155,7 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "removeAllByFuelType":{
+                    mainCollection.removeAllByFuelType(FuelType.valueOf(wordList.get(1).toUpperCase()));
 
                     historyCollection.addFirst("remove_all_by_fuel_type");
                     if (historyCollection.size() == 6){
@@ -159,6 +164,7 @@ public class CommandManager implements ICommandManager{
                     break;
                 }
                 case "countByEnginePower":{
+                    mainCollection.countByEnginePower(Integer.parseInt(wordList.get(1)));
 
                     historyCollection.addFirst("count_by_engine_power");
                     if (historyCollection.size() == 6){
