@@ -4,13 +4,20 @@ import Exceptions.IncorrectValueException;
 import Exceptions.NotEmptyException;
 import data.Coordinates;
 import data.FuelType;
+import data.Vehicle;
 import data.VehicleType;
 import java.util.Scanner;
 
 /**
- * The type Ask manager.
+ * The making Vehicle manager.
+ *
+ * @see Vehicle
+ * @author Alever
  */
 public class AskManager implements IAskManager{
+    /**
+     * The Scanner.
+     */
     private final Scanner scanner = new Scanner(System.in);
 
     @Override

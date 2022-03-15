@@ -2,12 +2,18 @@ package mainLogic;
 
 import data.FuelType;
 
+import java.io.IOException;
 import java.util.*;
 
+/**
+ * The input commands manager.
+ *
+ * @author Alever
+ */
 public class CommandManager implements ICommandManager{
 
     @Override
-    public void start(){
+    public void start() throws IOException {
         LinkedList<String> historyCollection = new LinkedList<>();
 
         CollectionManager mainCollection = new CollectionManager();
@@ -15,6 +21,14 @@ public class CommandManager implements ICommandManager{
         String input;
         String command;
         Scanner scan = new Scanner(System.in);
+
+        System.out.println("I know why you're here, User. I know what you've been doing... why you hardly sleep," +
+                " why you live alone, and why night after night, you sit by your computer. You're looking for him." +
+                " I know because I was once looking for the same thing. And when he found me, he told me I wasn't" +
+                " really looking for him. I was looking for an answer. It's the question that drives us, User." +
+                " It's the question that brought you here. You know the question, just as I did.\n" +
+                "User: Can I start?\n" +
+                "The answer is out there, User, and it's looking for you, and it will find you if you want it to.");
 
         commands:
         while (true){

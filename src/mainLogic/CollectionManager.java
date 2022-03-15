@@ -3,20 +3,56 @@ package mainLogic;
 import Exceptions.ExecuteScriptRecursiveException;
 import data.FuelType;
 import data.Vehicle;
-import file.OutputManager;
+import file.FileManager;
 
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * The type Collection manager.
+ *
+ * @author Alever
+ */
 public class CollectionManager implements ICollectionManagerUnchanged, ICollectionManagerChanged{
+    /**
+     * The id constant.
+     */
     private static final AtomicInteger currID = new AtomicInteger();
-    private final HashSet<Vehicle> vehicleCollection = new HashSet<>();
+    /**
+     * The Main collection.
+     * Stores Vehicle
+     * @see Vehicle
+     */
+    private final HashSet<Vehicle> vehicleCollection;
+    /**
+     * The Command list.
+     */
     private final HashMap<String, String> commandList = new HashMap<>();
+    /**
+     * The date of collection creating.
+     */
     private final java.util.Date creationDate = new Date();
 
+    /**
+     * The Ask manager.
+     */
     private final AskManager askManager = new AskManager();
 
+    /**
+     * Instantiates a new Collection manager.
+     *
+     * @throws IOException the io exception-_-
+     */
+    public CollectionManager() throws IOException{
+        vehicleCollection = FileManager.fillCollectionByFile();
+    }
+
+    /**
+     * Get int id and increment it by 1.
+     *
+     * @return the id Integer
+     */
     private int getId(){
         return currID.getAndIncrement();
     }
@@ -185,7 +221,7 @@ public class CollectionManager implements ICollectionManagerUnchanged, ICollecti
 
     @Override
     public void save() {
-        OutputManager outputManager = new OutputManager();
+        FileManager outputManager = new FileManager();
         try {
             outputManager.saveCollection(vehicleCollection);
         }
