@@ -175,8 +175,21 @@ public class CollectionManager implements ICollectionManagerUnchanged, ICollecti
 
     @Override
     public void removeByID(int id) {
-        vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getId() == id));
-        System.out.println("remove ended✓");
+        boolean isId = false;
+
+        for (Vehicle item: vehicleCollection) {
+            if (item.getId() == id) {
+                isId = true;
+                break;
+            }
+        }
+        if (isId){
+            vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getId() == id));
+            System.out.println("remove ended✓");
+        }
+        else {
+            System.out.println("element with this id doesn't exist");
+        }
     }
 
     @Override

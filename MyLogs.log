@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-03-16T09:48:50</date>
+  <millis>1647413330823</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>mainLogic.CommandManager</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>Start of execution</message>
+</record>
+<record>
+  <date>2022-03-16T09:48:57</date>
+  <millis>1647413337709</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>mainLogic.CommandManager</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>try to complete show command</message>
+</record>
+<record>
+  <date>2022-03-16T09:49:00</date>
+  <millis>1647413340239</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>mainLogic.CommandManager</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>try to complete add command</message>
+</record>
+<record>
+  <date>2022-03-16T09:49:31</date>
+  <millis>1647413371736</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>mainLogic.CommandManager</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>try to complete exit command</message>
+</record>
+<record>
+  <date>2022-03-16T09:49:31</date>
+  <millis>1647413371736</millis>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>mainLogic.CommandManager</class>
+  <method>start</method>
+  <thread>1</thread>
+  <message>program finished</message>
+</record>
+</log>
