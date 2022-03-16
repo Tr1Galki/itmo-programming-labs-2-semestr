@@ -1,6 +1,7 @@
 package mainLogic;
 
 import data.FuelType;
+import file.FileManager;
 
 import java.io.IOException;
 import java.util.*;
@@ -15,6 +16,8 @@ public class CommandManager implements ICommandManager{
     @Override
     public void start() throws IOException {
         LinkedList<String> historyCollection = new LinkedList<>();
+
+        FileManager.log.info("Start of execution");
 
         CollectionManager mainCollection = new CollectionManager();
 
@@ -41,6 +44,7 @@ public class CommandManager implements ICommandManager{
 
             command = check(input);
 
+            FileManager.log.info("try to complete " + command + " command");
             switch (command){
                 case "wrong": {
                     System.out.println("Wrong command. Please repeat");
@@ -188,11 +192,10 @@ public class CommandManager implements ICommandManager{
                 }
                 case "exit": {
                     System.out.println("Program finished. Have a nice day sir!");
-
+                    FileManager.log.info("program finished");
                     break commands;
                 }
             }
-
         }
 
     }

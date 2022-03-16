@@ -6,6 +6,8 @@ import data.Coordinates;
 import data.FuelType;
 import data.Vehicle;
 import data.VehicleType;
+import file.FileManager;
+
 import java.util.Scanner;
 
 /**
@@ -30,6 +32,7 @@ public class AskManager implements IAskManager{
         }
         catch (NotEmptyException e){
             System.out.println(e.getMessage());
+            FileManager.log.warning("NotEmptyException");
             return askName();
         }
         catch (NullPointerException e){
