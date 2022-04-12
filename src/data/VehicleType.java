@@ -1,9 +1,11 @@
 package data;
 
+import java.io.Serializable;
+
 /**
  * The enum which contains Vehicle types.
  */
-public enum VehicleType {
+public enum VehicleType implements Serializable {
     /**
      * Car vehicle type.
      */

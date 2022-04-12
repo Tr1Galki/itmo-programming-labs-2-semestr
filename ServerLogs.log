@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-04-12T22:49:57</date>
+  <millis>1649792997503</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerCollection</class>
+  <method>executeCommand</method>
+  <thread>1</thread>
+  <message>Trying to execute show command</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:03</date>
+  <millis>1649793003193</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerCollection</class>
+  <method>executeCommand</method>
+  <thread>1</thread>
+  <message>Trying to execute history command</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:05</date>
+  <millis>1649793005903</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerCollection</class>
+  <method>executeCommand</method>
+  <thread>1</thread>
+  <message>Trying to execute info command</message>
+</record>
+</log>

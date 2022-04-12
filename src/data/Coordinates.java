@@ -1,11 +1,13 @@
 package data;
 
+import java.io.Serializable;
+
 /**
  * The Coordinates.
  *
  * @author Alever
  */
-public class Coordinates {
+public class Coordinates implements Serializable {
     /**
      * The X.
      */

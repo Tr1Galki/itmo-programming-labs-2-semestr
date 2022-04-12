@@ -1,4 +1,4 @@
-package mainLogic;
+package client.askTools;
 
 import data.Coordinates;
 import data.FuelType;

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-04-12T22:49:54</date>
+  <millis>1649792994161</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.UserCommandManager</class>
+  <method>startConsole</method>
+  <thread>1</thread>
+  <message>Start of execution</message>
+</record>
+<record>
+  <date>2022-04-12T22:49:57</date>
+  <millis>1649792997482</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.UserCommandManager</class>
+  <method>startConsole</method>
+  <thread>1</thread>
+  <message>Trying to execute show command</message>
+</record>
+<record>
+  <date>2022-04-12T22:49:57</date>
+  <millis>1649792997482</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.ClientToServerSender</class>
+  <method>sendCommandToServer</method>
+  <thread>1</thread>
+  <message>Sending command to server</message>
+</record>
+<record>
+  <date>2022-04-12T22:49:57</date>
+  <millis>1649792997494</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.ClientToServerSender</class>
+  <method>sendCommandToServer</method>
+  <thread>1</thread>
+  <message>Get command from server</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:03</date>
+  <millis>1649793003190</millis>
+  <sequence>4</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.UserCommandManager</class>
+  <method>startConsole</method>
+  <thread>1</thread>
+  <message>Trying to execute history command</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:03</date>
+  <millis>1649793003191</millis>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.ClientToServerSender</class>
+  <method>sendCommandToServer</method>
+  <thread>1</thread>
+  <message>Sending command to server</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:03</date>
+  <millis>1649793003192</millis>
+  <sequence>6</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.ClientToServerSender</class>
+  <method>sendCommandToServer</method>
+  <thread>1</thread>
+  <message>Get command from server</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:05</date>
+  <millis>1649793005900</millis>
+  <sequence>7</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.UserCommandManager</class>
+  <method>startConsole</method>
+  <thread>1</thread>
+  <message>Trying to execute info command</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:05</date>
+  <millis>1649793005900</millis>
+  <sequence>8</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.ClientToServerSender</class>
+  <method>sendCommandToServer</method>
+  <thread>1</thread>
+  <message>Sending command to server</message>
+</record>
+<record>
+  <date>2022-04-12T22:50:05</date>
+  <millis>1649793005900</millis>
+  <sequence>9</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>client.ClientToServerSender</class>
+  <method>sendCommandToServer</method>
+  <thread>1</thread>
+  <message>Get command from server</message>
+</record>
+</log>

@@ -1,11 +1,11 @@
-package Exceptions;
+package exceptions;
 
 /**
  * Exception triggered when script recursive problem is found.
  *
  * @author Alever
  */
-public class ExecuteScriptRecursiveException extends Exception{
+public class ExecuteScriptRecursiveException extends Exception {
     /**
      * Instantiates a new Execute script recursive exception
      */

@@ -1,15 +1,16 @@
 package data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * The type Vehicle.
- * Main element.
+ * client.Main element.
  *
  * @see mainLogic.CollectionManager
  * @author Alever
  */
-public class Vehicle implements Comparable<Vehicle>{
+public class Vehicle implements Comparable<Vehicle>, Serializable {
 
     /**
      * The id.

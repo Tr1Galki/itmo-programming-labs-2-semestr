@@ -1,7 +1,7 @@
-package mainLogic;
+package client.askTools;
 
-import Exceptions.IncorrectValueException;
-import Exceptions.NotEmptyException;
+import exceptions.IncorrectValueException;
+import exceptions.NotEmptyException;
 import data.Coordinates;
 import data.FuelType;
 import data.Vehicle;
@@ -13,10 +13,10 @@ import java.util.Scanner;
 /**
  * The making Vehicle manager.
  *
- * @see Vehicle
  * @author Alever
+ * @see Vehicle
  */
-public class AskManager implements IAskManager{
+public class AskManager implements IAskManager {
     /**
      * The Scanner.
      */
@@ -29,13 +29,11 @@ public class AskManager implements IAskManager{
             System.out.print("Enter title: ");
             name = scanner.nextLine().trim();
             if (name.equals("")) throw new NotEmptyException();
-        }
-        catch (NotEmptyException e){
+        } catch (NotEmptyException e) {
             System.out.println(e.getMessage());
             FileManager.log.warning("NotEmptyException");
             return askName();
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("Name can not be Null");
             return askName();
         }
@@ -46,7 +44,7 @@ public class AskManager implements IAskManager{
     public Coordinates askCoordinates() {
         Coordinates coordinates;
         System.out.println("Enter coordinates: ");
-        coordinates = new Coordinates(askCoordinateX(),askCoordinateY());
+        coordinates = new Coordinates(askCoordinateX(), askCoordinateY());
         return coordinates;
     }
 
@@ -60,12 +58,10 @@ public class AskManager implements IAskManager{
             if (strX.equals("")) throw new NotEmptyException();
             if (Long.parseLong(strX) <= -893) throw new IncorrectValueException();
             x = Long.parseLong(strX);
-        }
-        catch (NotEmptyException | IncorrectValueException e){
+        } catch (NotEmptyException | IncorrectValueException e) {
             System.out.println(e.getMessage());
             return askCoordinateX();
-        }
-        catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Incorrect value format");
             return askCoordinateX();
         }
@@ -82,16 +78,13 @@ public class AskManager implements IAskManager{
             if (strY.equals("")) throw new NotEmptyException();
             if (Double.parseDouble(strY) <= -308) throw new IncorrectValueException();
             y = Double.parseDouble(strY);
-        }
-        catch (NotEmptyException | IncorrectValueException e){
+        } catch (NotEmptyException | IncorrectValueException e) {
             System.out.println(e.getMessage());
             return askCoordinateY();
-        }
-        catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Incorrect value format");
             return askCoordinateY();
-        }
-        catch (NullPointerException e){
+        } catch (NullPointerException e) {
             System.out.println("Coordinate can not be Null");
             return askCoordinateY();
         }
@@ -108,16 +101,13 @@ public class AskManager implements IAskManager{
             if (strEnginePower.equals("")) throw new NotEmptyException();
             if (Integer.parseInt(strEnginePower) <= 0) throw new IncorrectValueException();
             enginePower = Integer.parseInt(strEnginePower);
-        }
-        catch (NotEmptyException e){
+        } catch (NotEmptyException e) {
             System.out.println(e.getMessage());
             return askEnginePower();
-        }
-        catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Incorrect value format");
             return askEnginePower();
-        }
-        catch (IncorrectValueException e){
+        } catch (IncorrectValueException e) {
             System.out.println("Value must be more than zero");
             return askEnginePower();
         }
@@ -135,12 +125,10 @@ public class AskManager implements IAskManager{
             String extraString = strType.toUpperCase();
             if (strType.equals("")) throw new NotEmptyException();
             vehicleType = VehicleType.valueOf(extraString);
-        }
-        catch (NotEmptyException e){
+        } catch (NotEmptyException e) {
             System.out.println(e.getMessage());
             return askType();
-        }
-        catch (IllegalArgumentException ex) {
+        } catch (IllegalArgumentException ex) {
             System.out.println("This value is incorrect");
             return askType();
         }
@@ -157,12 +145,10 @@ public class AskManager implements IAskManager{
             String extraString = strType.toUpperCase();
             if (extraString.equals("")) throw new NotEmptyException();
             fuelType = FuelType.valueOf(extraString);
-        }
-        catch (NotEmptyException e){
+        } catch (NotEmptyException e) {
             System.out.println(e.getMessage());
             return askFuelType();
-        }
-        catch (IllegalArgumentException ex) {
+        } catch (IllegalArgumentException ex) {
             System.out.println("This value is incorrect");
             return askFuelType();
         }

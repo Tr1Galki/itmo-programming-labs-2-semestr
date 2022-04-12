@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 /**
  * Exception triggered when element is empty.

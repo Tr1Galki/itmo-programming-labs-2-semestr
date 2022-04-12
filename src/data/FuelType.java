@@ -1,11 +1,13 @@
 package data;
 
+import java.io.Serializable;
+
 /**
  * The enum which contain Fuel types.
  *
  * @author Alever
  */
-public enum FuelType {
+public enum FuelType implements Serializable {
     /**
      * Gasoline fuel type.
      */

@@ -1,4 +1,4 @@
-package Exceptions;
+package exceptions;
 
 /**
  * Exception triggered value is incorrect.
