@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-04-26T17:59:17</date>
-  <millis>1650985157409</millis>
+  <date>2022-04-26T19:43:46</date>
+  <millis>1650991426128</millis>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Trying to register</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:26</date>
-  <millis>1650985166540</millis>
+  <date>2022-04-26T19:43:55</date>
+  <millis>1650991435588</millis>
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -24,8 +24,8 @@
   <message>Sending registration data to server</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:26</date>
-  <millis>1650985166552</millis>
+  <date>2022-04-26T19:43:55</date>
+  <millis>1650991435588</millis>
   <sequence>2</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -35,8 +35,8 @@
   <message>Get registration answer from server</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:26</date>
-  <millis>1650985166584</millis>
+  <date>2022-04-26T19:43:55</date>
+  <millis>1650991435619</millis>
   <sequence>3</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -46,19 +46,19 @@
   <message>Start of execution</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:29</date>
-  <millis>1650985169343</millis>
+  <date>2022-04-26T19:44:15</date>
+  <millis>1650991455149</millis>
   <sequence>4</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>client.UserCommandManager</class>
   <method>startConsole</method>
   <thread>1</thread>
-  <message>Trying to execute show command</message>
+  <message>Trying to execute add command</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:29</date>
-  <millis>1650985169343</millis>
+  <date>2022-04-26T19:44:31</date>
+  <millis>1650991471547</millis>
   <sequence>5</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -68,42 +68,9 @@
   <message>Sending command to server</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:29</date>
-  <millis>1650985169343</millis>
+  <date>2022-04-26T19:44:31</date>
+  <millis>1650991471593</millis>
   <sequence>6</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>client.ClientToServerSender</class>
-  <method>sendCommandToServer</method>
-  <thread>1</thread>
-  <message>Get command from server</message>
-</record>
-<record>
-  <date>2022-04-26T17:59:31</date>
-  <millis>1650985171219</millis>
-  <sequence>7</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>client.UserCommandManager</class>
-  <method>startConsole</method>
-  <thread>1</thread>
-  <message>Trying to execute exit command</message>
-</record>
-<record>
-  <date>2022-04-26T17:59:31</date>
-  <millis>1650985171219</millis>
-  <sequence>8</sequence>
-  <logger>global</logger>
-  <level>INFO</level>
-  <class>client.ClientToServerSender</class>
-  <method>sendCommandToServer</method>
-  <thread>1</thread>
-  <message>Sending command to server</message>
-</record>
-<record>
-  <date>2022-04-26T17:59:31</date>
-  <millis>1650985171219</millis>
-  <sequence>9</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>client.ClientToServerSender</class>

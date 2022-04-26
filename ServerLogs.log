@@ -2,8 +2,8 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-04-26T17:59:13</date>
-  <millis>1650985153612</millis>
+  <date>2022-04-26T19:43:42</date>
+  <millis>1650991422499</millis>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -13,8 +13,8 @@
   <message>Trying to connect</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:17</date>
-  <millis>1650985157388</millis>
+  <date>2022-04-26T19:43:46</date>
+  <millis>1650991426101</millis>
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
@@ -24,24 +24,47 @@
   <message>New user connect</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:29</date>
-  <millis>1650985169343</millis>
+  <date>2022-04-26T19:43:48</date>
+  <millis>1650991428591</millis>
   <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerConnectionManager</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>New user connect</message>
+</record>
+<record>
+  <date>2022-04-26T19:44:31</date>
+  <millis>1650991471593</millis>
+  <sequence>3</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>server.ServerCollection</class>
   <method>executeCommand</method>
   <thread>15</thread>
-  <message>Trying to execute show command</message>
+  <message>Trying to execute add command</message>
 </record>
 <record>
-  <date>2022-04-26T17:59:31</date>
-  <millis>1650985171241</millis>
-  <sequence>3</sequence>
+  <date>2022-04-26T19:45:11</date>
+  <millis>1650991511308</millis>
+  <sequence>4</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>server.MainThread</class>
-  <method>run</method>
-  <thread>15</thread>
-  <message>User Exit. Disconnected</message>
+  <class>server.ServerCollection</class>
+  <method>executeCommand</method>
+  <thread>16</thread>
+  <message>Trying to execute add command</message>
 </record>
+<record>
+  <date>2022-04-26T19:45:13</date>
+  <millis>1650991513291</millis>
+  <sequence>5</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerCollection</class>
+  <method>executeCommand</method>
+  <thread>16</thread>
+  <message>Trying to execute show command</message>
+</record>
+</log>

@@ -45,7 +45,7 @@ public class UserAuthorizeManager {
         int res;
 
         while (true) try {
-            System.out.println("Write what do you want:\n - registration\n - sign_in\n - exit");
+            System.out.println("Write what do you want:\n - registration\n - sign_in");
             String input = scan.nextLine();
 
             switch (input.toLowerCase(Locale.ROOT)) {
@@ -69,21 +69,12 @@ public class UserAuthorizeManager {
                     }
                     break;
                 }
-                case "exit":
-                    exit();
-                    return 0;
             }
 
             throw new IncorrectValueException();
         } catch (IncorrectValueException e) {
             System.out.println(e.getMessage());
         }
-    }
-
-    private void exit(){
-        data = new AuthorizingInputData();
-        data.setExit(true);
-        sendRegistrationToServer(data);
     }
 
     private int register() {
@@ -127,6 +118,7 @@ public class UserAuthorizeManager {
             break;
         }
 
+        UserManager.login = data.getLogin();
         AuthorizingOutputData answer = sendRegistrationToServer(data);
 
         if (answer.isLogged()) {
@@ -178,6 +170,7 @@ public class UserAuthorizeManager {
             break;
         }
 
+        UserManager.login = data.getLogin();
         AuthorizingOutputData answer = sendRegistrationToServer(data);
 
         if (answer.isLogged()) {
@@ -197,7 +190,7 @@ public class UserAuthorizeManager {
 
             FileManager.log.info("Get registration answer from server");
             return (AuthorizingOutputData) inputStream.readObject();
-        } catch (StreamCorruptedException ignored){
+        } catch (StreamCorruptedException ignored) {
             AuthorizingOutputData ans = new AuthorizingOutputData();
             ans.setLogged(false);
             ans.setMassage("Ошибка передачи с сервером");

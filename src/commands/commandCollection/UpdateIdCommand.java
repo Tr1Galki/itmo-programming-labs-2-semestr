@@ -1,5 +1,6 @@
 package commands.commandCollection;
 
+import client.UserManager;
 import client.askTools.AskManager;
 import commands.Command;
 import data.vehiclec.Vehicle;
@@ -12,7 +13,7 @@ public class UpdateIdCommand extends Command {
     public void userExecute() {
         setName("update_id");
         final AskManager askManager = new AskManager();
-        Vehicle vehicle = new Vehicle(getIntArg(), askManager.askName(), askManager.askCoordinates(), askManager.askEnginePower(), askManager.askType(), askManager.askFuelType());
+        Vehicle vehicle = new Vehicle(UserManager.login, getIntArg(), askManager.askName(), askManager.askCoordinates(), askManager.askEnginePower(), askManager.askType(), askManager.askFuelType());
         setVehicle(vehicle);
     }
 

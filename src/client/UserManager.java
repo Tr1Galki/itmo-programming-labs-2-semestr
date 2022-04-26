@@ -18,6 +18,8 @@ public class UserManager {
 
     private DataInputStream dataInputStream;
 
+     public static String login;
+
     public void startClientConnection() {
 
         try {
@@ -34,8 +36,8 @@ public class UserManager {
                 userCommandManager.startConsole(false);
             } else {
                 UserCommandManager userCommandManager = new UserCommandManager(outputStream, dataInputStream);
-                userCommandManager.startConsole(true);
                 System.out.println("so good buy");
+                userCommandManager.startConsole(true);
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -51,7 +51,8 @@ public class Vehicle implements Comparable<Vehicle>, Serializable {
      * @param type        the type
      * @param fuelType    the fuel type
      */
-    public Vehicle(int id, String name, Coordinates coordinates, Integer enginePower, VehicleType type, FuelType fuelType) {
+    public Vehicle(String ownerName, int id, String name, Coordinates coordinates, Integer enginePower, VehicleType type, FuelType fuelType) {
+        this.ownerName = ownerName;
         this.id = id;
         this.name = name;
         this.coordinates = coordinates;
@@ -207,7 +208,8 @@ public class Vehicle implements Comparable<Vehicle>, Serializable {
     @Override
     public String toString() {
         return  "Vehicle{" +
-                "id = " + id +
+                "owner: = " + ownerName +
+                "; id = " + id +
                 "; name = " + name + '\'' +
                 "; coordinates X = " + coordinates.getX() +
                 "; coordinates Y = " + coordinates.getY() +
