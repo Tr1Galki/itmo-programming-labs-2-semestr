@@ -1,8 +1,8 @@
 package commands.commandCollection;
 
 import commands.Command;
-import data.FuelType;
-import data.Vehicle;
+import data.vehiclec.FuelType;
+import data.vehiclec.Vehicle;
 
 import java.util.HashSet;
 

@@ -1,6 +1,6 @@
 package commands;
 
-import data.Vehicle;
+import data.vehiclec.Vehicle;
 
 import java.io.Serializable;
 import java.util.Date;

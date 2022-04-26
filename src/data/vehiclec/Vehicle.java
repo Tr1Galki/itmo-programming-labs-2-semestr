@@ -1,4 +1,4 @@
-package data;
+package data.vehiclec;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -7,11 +7,10 @@ import java.util.Date;
  * The type Vehicle.
  * client.Main element.
  *
- * @see mainLogic.CollectionManager
  * @author Alever
  */
 public class Vehicle implements Comparable<Vehicle>, Serializable {
-
+    private String ownerName;
     /**
      * The id.
      */
@@ -197,6 +196,13 @@ public class Vehicle implements Comparable<Vehicle>, Serializable {
         this.fuelType = fuelType;
     }
 
+    public String getOwnerName() {
+        return ownerName;
+    }
+
+    public void setOwnerName(String ownerName) {
+        this.ownerName = ownerName;
+    }
 
     @Override
     public String toString() {

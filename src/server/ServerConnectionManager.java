@@ -1,54 +1,60 @@
 package server;
 
 
-import commands.Command;
+import data.registrations.AuthorizingOutputData;
 import file.FileManager;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 /**
  * The type Server connection manager.
  */
-public class ServerConnectionManager {
+public class ServerConnectionManager extends Thread{
+
+    private AuthorizingOutputData registerAnswer;
+
+    private boolean isLogged;
+
+    public static boolean skip = false;
 
     /**
      * The Server collection.
      */
     private final ServerCollection serverCollection = new ServerCollection();
 
+    private final ClientManager clientManager = new ClientManager();
+
+    public static ServerSocket serverSocket;
+
+    static {
+        try {
+            serverSocket = new ServerSocket(2288);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
     /**
      * Connect.
      */
-    public void connect(){
+    public void run() {
         FileManager.log.info("Trying to connect");
-        try {
+        while (true) {
+            try {
+                Socket client = serverSocket.accept();
+                System.out.println("new user connect!");
+                FileManager.log.info("New user connect");
 
-            ServerSocket serverSocket = new ServerSocket(2288);
-            Socket client = serverSocket.accept();
-            ObjectInputStream objectInputStream = new ObjectInputStream(client.getInputStream());
-            DataOutputStream outputStream = new DataOutputStream(client.getOutputStream());
-            System.out.println("new user connect!");
-            FileManager.log.info("New user connect");
+                new MainThread(serverCollection, clientManager, client).start();
 
-            while (!client.isClosed()){
-                Command thisCommand = (Command) objectInputStream.readObject();
-                if (thisCommand.getArg().equals("EXIT")){
-                    outputStream.writeUTF("Disconnected");
-                    serverCollection.save();
-                    FileManager.log.info("User Exit. Disconnected");
-                    break;
-                }
-                outputStream.writeUTF(serverCollection.executeCommand(thisCommand));
-               }
-
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-
     }
+
 
 }

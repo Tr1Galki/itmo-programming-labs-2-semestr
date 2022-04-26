@@ -28,7 +28,8 @@ public class RunUser {
         FileManager.log.setUseParentHandlers(false);
         FileManager.log.addHandler(userFileHandler);
 
-        UserCommandManager userCommandManager = new UserCommandManager();
-        userCommandManager.startConsole();
+        UserManager userManager = new UserManager();
+        userManager.startClientConnection();
+
     }
 }

@@ -1,8 +1,8 @@
 package client.askTools;
 
-import data.Coordinates;
-import data.FuelType;
-import data.VehicleType;
+import data.vehiclec.Coordinates;
+import data.vehiclec.FuelType;
+import data.vehiclec.VehicleType;
 
 /**
  * The interface of Ask manager.

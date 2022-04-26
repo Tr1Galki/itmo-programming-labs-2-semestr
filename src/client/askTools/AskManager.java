@@ -2,10 +2,10 @@ package client.askTools;
 
 import exceptions.IncorrectValueException;
 import exceptions.NotEmptyException;
-import data.Coordinates;
-import data.FuelType;
-import data.Vehicle;
-import data.VehicleType;
+import data.vehiclec.Coordinates;
+import data.vehiclec.FuelType;
+import data.vehiclec.Vehicle;
+import data.vehiclec.VehicleType;
 import file.FileManager;
 
 import java.util.Scanner;

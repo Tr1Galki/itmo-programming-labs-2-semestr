@@ -1,7 +1,7 @@
 package commands.commandCollection;
 
 import commands.Command;
-import data.Vehicle;
+import data.vehiclec.Vehicle;
 
 import java.util.HashSet;
 import java.util.LinkedList;

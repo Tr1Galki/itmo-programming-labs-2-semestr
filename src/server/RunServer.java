@@ -16,7 +16,7 @@ public class RunServer {
      *
      * @param args the args
      */
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
         Handler serverFileHandler = null;
         try {
@@ -27,9 +27,7 @@ public class RunServer {
         FileManager.log.setUseParentHandlers(false);
         FileManager.log.addHandler(serverFileHandler);
 
-        ServerConnectionManager server = new ServerConnectionManager();
-        server.connect();
-
+        new ServerConnectionManager().start();
     }
 
 }

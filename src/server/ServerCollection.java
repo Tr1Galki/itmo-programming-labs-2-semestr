@@ -1,7 +1,7 @@
 package server;
 
 import commands.Command;
-import data.Vehicle;
+import data.vehiclec.Vehicle;
 import file.FileManager;
 
 import java.io.IOException;

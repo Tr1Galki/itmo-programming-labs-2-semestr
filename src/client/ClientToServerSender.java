@@ -5,6 +5,9 @@ import file.FileManager;
 
 import java.io.*;
 import java.net.Socket;
+import java.net.SocketException;
+
+import static client.StaticSocket.getClientSocket;
 
 /**
  * The type Client to server sender.
@@ -12,23 +15,9 @@ import java.net.Socket;
 public class ClientToServerSender {
 
     /**
-     * The constant clientSocket.
-     */
-    private static Socket clientSocket;
-
-    /**
      * The Input stream.
      */
     private DataInputStream inputStream;
-    /**
-     * The Output stream.
-     */
-    private DataOutputStream outputStream;
-
-    /**
-     * The Keyboard.
-     */
-    private BufferedReader keyboard;
 
     /**
      * The Object output stream.
@@ -38,19 +27,11 @@ public class ClientToServerSender {
     /**
      * Instantiates a new Client to server sender.
      */
-    public ClientToServerSender(){
-        try{
-            clientSocket = new Socket("localhost", 2288);
-            keyboard = new BufferedReader(new InputStreamReader(System.in));
-            objectOutputStream = new ObjectOutputStream(clientSocket.getOutputStream());
-            inputStream = new DataInputStream(clientSocket.getInputStream());
-            outputStream = new DataOutputStream(clientSocket.getOutputStream());
-            keyboard=new BufferedReader(new InputStreamReader(System.in));
+    public ClientToServerSender(ObjectOutputStream objectOutputStream, DataInputStream inputStream) {
 
-        } catch (IOException e) {
-            System.out.println("Сервер закрыт, попробуйте позже");
-            System.exit(228);
-        }
+        this.objectOutputStream = objectOutputStream;
+        this.inputStream = inputStream;
+
     }
 
     /**
@@ -58,7 +39,7 @@ public class ClientToServerSender {
      *
      * @param command Command
      */
-    public void sendCommandToServer(Command command){
+    public void sendCommandToServer(Command command) {
         FileManager.log.info("Sending command to server");
         try {
             objectOutputStream.writeObject(command);
@@ -67,6 +48,7 @@ public class ClientToServerSender {
             FileManager.log.info("Get command from server");
             System.out.println(inputStream.readUTF());
 
+        } catch (SocketException ignored){
         } catch (IOException e) {
             e.printStackTrace();
         }

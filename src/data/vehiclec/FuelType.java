@@ -1,4 +1,4 @@
-package data;
+package data.vehiclec;
 
 import java.io.Serializable;
 

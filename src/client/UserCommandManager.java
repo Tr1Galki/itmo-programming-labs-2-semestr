@@ -1,138 +1,162 @@
 package client;
 
+import java.io.DataInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+
 import commands.commandCollection.*;
 import file.FileManager;
 
 
 public class UserCommandManager {
 
-    public void startConsole(){
+    /**
+     * The Input stream.
+     */
+    private DataInputStream inputStream;
+
+    /**
+     * The Object output stream.
+     */
+    private ObjectOutputStream objectOutputStream;
+
+    public UserCommandManager(ObjectOutputStream objectOutputStream, DataInputStream inputStream){
+        this.objectOutputStream = objectOutputStream;
+        this.inputStream = inputStream;
+    }
+
+    public void startConsole(boolean exit) {
         FileManager.log.info("Start of execution");
         String input, command;
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("I know why you're here, User. I know what you've been doing...");
+        if (exit) {
+            ClientToServerSender clientToServerSender = new ClientToServerSender(objectOutputStream, inputStream);
+            ExitCommand exitCommand = new ExitCommand();
+            exitCommand.userExecute();
+            clientToServerSender.sendCommandToServer(exitCommand);
+        } else {
 
-        ClientToServerSender clientToServerSender = new ClientToServerSender();
+            System.out.println("I know why you're here, User. I know what you've been doing...");
 
-        commandInput:
-        while (true){
+            ClientToServerSender clientToServerSender = new ClientToServerSender(objectOutputStream, inputStream);
 
-            System.out.print("write command: ");
-            input = scan.nextLine();
+            commandInput:
+            while (true) {
 
-            List<String> wordList = new ArrayList<>(Arrays.asList(input.split(" ")));
-            wordList.removeAll(Arrays.asList("", null));
+                System.out.print("write command: ");
+                input = scan.nextLine();
 
-            command = check(input);
+                List<String> wordList = new ArrayList<>(Arrays.asList(input.split(" ")));
+                wordList.removeAll(Arrays.asList("", null));
 
-            FileManager.log.info("Trying to execute " + command + " command");
+                command = check(input);
 
-            switch (command){
-                case "wrong": {
-                    System.out.println("Wrong command. Please repeat");
-                    break;
-                }
-                case "help": {
-                    HelpCommand helpCommand = new HelpCommand();
-                    helpCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(helpCommand);
-                    break;
-                }
-                case "info":{
-                    InfoCommand infoCommand = new InfoCommand();
-                    infoCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(infoCommand);
-                    break;
-                }
-                case "show":{
-                    ShowCommand showCommand = new ShowCommand();
-                    showCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(showCommand);
-                    break;
-                }
-                case "add":{
-                    AddCommand addCommand = new AddCommand();
-                    addCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(addCommand);
-                    break;
-                }
-                case "clear":{
-                    ClearCommand clearCommand = new ClearCommand();
-                    clearCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(clearCommand);
-                    break;
-                }
-                case "addIfMax":{
-                    AddIfMaxCommand addIfMaxCommand = new AddIfMaxCommand();
-                    addIfMaxCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(addIfMaxCommand);
-                    break;
-                }
-                case "removeGreater":{
-                    RemoveGreaterCommand removeGreaterCommand = new RemoveGreaterCommand();
-                    removeGreaterCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(removeGreaterCommand);
-                    break;
-                }
-                case "history":{
-                    HistoryCommand historyCommand = new HistoryCommand();
-                    historyCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(historyCommand);
-                    break;
-                }
-                case "printDescending":{
-                    DescendingCommand printDescendingCommand = new DescendingCommand();
-                    printDescendingCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(printDescendingCommand);
-                    break;
-                }
-                case "updateID":{
-                    UpdateIdCommand updateIDCommand = new UpdateIdCommand();
-                    updateIDCommand.setArg(wordList.get(1));
-                    updateIDCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(updateIDCommand);
-                    break;
-                }
-                case "removeByID":{
-                    RemoveByIdCommand removeByIDCommand = new RemoveByIdCommand();
-                    removeByIDCommand.setArg(wordList.get(1));
-                    removeByIDCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(removeByIDCommand);
-                    break;
-                }
-                case "executeScript":{
+                FileManager.log.info("Trying to execute " + command + " command");
 
-                    break;
-                }
-                case "removeAllByFuelType":{
-                    RemoveAllByFuelTypeCommand removeAllByFuelTypeCommand = new RemoveAllByFuelTypeCommand();
-                    removeAllByFuelTypeCommand.setArg(wordList.get(1));
-                    removeAllByFuelTypeCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(removeAllByFuelTypeCommand);
-                    break;
-                }
-                case "countByEnginePower":{
-                    CountByEnginePowerCommand countByEnginePowerCommand = new CountByEnginePowerCommand();
-                    countByEnginePowerCommand.setArg(wordList.get(1));
-                    countByEnginePowerCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(countByEnginePowerCommand);
-                    break;
-                }
-                case "exit": {
-                    ExitCommand exitCommand = new ExitCommand();
-                    exitCommand.userExecute();
-                    clientToServerSender.sendCommandToServer(exitCommand);
-                    break commandInput;
+                switch (command) {
+                    case "wrong": {
+                        System.out.println("Wrong command. Please repeat");
+                        break;
+                    }
+                    case "help": {
+                        HelpCommand helpCommand = new HelpCommand();
+                        helpCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(helpCommand);
+                        break;
+                    }
+                    case "info": {
+                        InfoCommand infoCommand = new InfoCommand();
+                        infoCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(infoCommand);
+                        break;
+                    }
+                    case "show": {
+                        ShowCommand showCommand = new ShowCommand();
+                        showCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(showCommand);
+                        break;
+                    }
+                    case "add": {
+                        AddCommand addCommand = new AddCommand();
+                        addCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(addCommand);
+                        break;
+                    }
+                    case "clear": {
+                        ClearCommand clearCommand = new ClearCommand();
+                        clearCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(clearCommand);
+                        break;
+                    }
+                    case "addIfMax": {
+                        AddIfMaxCommand addIfMaxCommand = new AddIfMaxCommand();
+                        addIfMaxCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(addIfMaxCommand);
+                        break;
+                    }
+                    case "removeGreater": {
+                        RemoveGreaterCommand removeGreaterCommand = new RemoveGreaterCommand();
+                        removeGreaterCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(removeGreaterCommand);
+                        break;
+                    }
+                    case "history": {
+                        HistoryCommand historyCommand = new HistoryCommand();
+                        historyCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(historyCommand);
+                        break;
+                    }
+                    case "printDescending": {
+                        DescendingCommand printDescendingCommand = new DescendingCommand();
+                        printDescendingCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(printDescendingCommand);
+                        break;
+                    }
+                    case "updateID": {
+                        UpdateIdCommand updateIDCommand = new UpdateIdCommand();
+                        updateIDCommand.setArg(wordList.get(1));
+                        updateIDCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(updateIDCommand);
+                        break;
+                    }
+                    case "removeByID": {
+                        RemoveByIdCommand removeByIDCommand = new RemoveByIdCommand();
+                        removeByIDCommand.setArg(wordList.get(1));
+                        removeByIDCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(removeByIDCommand);
+                        break;
+                    }
+                    case "executeScript": {
+
+                        break;
+                    }
+                    case "removeAllByFuelType": {
+                        RemoveAllByFuelTypeCommand removeAllByFuelTypeCommand = new RemoveAllByFuelTypeCommand();
+                        removeAllByFuelTypeCommand.setArg(wordList.get(1));
+                        removeAllByFuelTypeCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(removeAllByFuelTypeCommand);
+                        break;
+                    }
+                    case "countByEnginePower": {
+                        CountByEnginePowerCommand countByEnginePowerCommand = new CountByEnginePowerCommand();
+                        countByEnginePowerCommand.setArg(wordList.get(1));
+                        countByEnginePowerCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(countByEnginePowerCommand);
+                        break;
+                    }
+                    case "exit": {
+                        ExitCommand exitCommand = new ExitCommand();
+                        exitCommand.userExecute();
+                        clientToServerSender.sendCommandToServer(exitCommand);
+                        break commandInput;
+                    }
                 }
             }
-
         }
-
     }
 
     private static String check(String s) {
@@ -184,7 +208,7 @@ public class UserCommandManager {
                 if (wordList.get(0).equals("execute_script")) {
                     return "executeScript";
                 }
-                if (wordList.get(0).equals("remove_all_by_fuel_type") ) {
+                if (wordList.get(0).equals("remove_all_by_fuel_type")) {
                     return "removeAllByFuelType";
                 }
                 if (wordList.get(0).equals("count_by_engine_power")) {

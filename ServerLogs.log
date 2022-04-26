@@ -2,36 +2,46 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-04-12T22:49:57</date>
-  <millis>1649792997503</millis>
+  <date>2022-04-26T17:59:13</date>
+  <millis>1650985153612</millis>
   <sequence>0</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>server.ServerCollection</class>
-  <method>executeCommand</method>
-  <thread>1</thread>
-  <message>Trying to execute show command</message>
+  <class>server.ServerConnectionManager</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Trying to connect</message>
 </record>
 <record>
-  <date>2022-04-12T22:50:03</date>
-  <millis>1649793003193</millis>
+  <date>2022-04-26T17:59:17</date>
+  <millis>1650985157388</millis>
   <sequence>1</sequence>
   <logger>global</logger>
   <level>INFO</level>
-  <class>server.ServerCollection</class>
-  <method>executeCommand</method>
-  <thread>1</thread>
-  <message>Trying to execute history command</message>
+  <class>server.ServerConnectionManager</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>New user connect</message>
 </record>
 <record>
-  <date>2022-04-12T22:50:05</date>
-  <millis>1649793005903</millis>
+  <date>2022-04-26T17:59:29</date>
+  <millis>1650985169343</millis>
   <sequence>2</sequence>
   <logger>global</logger>
   <level>INFO</level>
   <class>server.ServerCollection</class>
   <method>executeCommand</method>
-  <thread>1</thread>
-  <message>Trying to execute info command</message>
+  <thread>15</thread>
+  <message>Trying to execute show command</message>
 </record>
-</log>
+<record>
+  <date>2022-04-26T17:59:31</date>
+  <millis>1650985171241</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.MainThread</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>User Exit. Disconnected</message>
+</record>

@@ -2,7 +2,7 @@ package commands.commandCollection;
 
 import client.askTools.AskManager;
 import commands.Command;
-import data.Vehicle;
+import data.vehiclec.Vehicle;
 
 import java.util.HashSet;
 
