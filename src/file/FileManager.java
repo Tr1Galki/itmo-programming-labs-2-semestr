@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonParseException;
 import com.google.gson.reflect.TypeToken;
+
 import java.util.logging.*;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Type;
@@ -11,14 +12,15 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
-import data.Vehicle;
+
+import data.vehiclec.Vehicle;
 
 /**
  * The manager of all file work like reading and writing.
  *
  * @author Alever
  */
-public class FileManager implements IFileManager{
+public class FileManager implements IFileManager {
 
     /**
      * The constant for logging.
@@ -47,23 +49,19 @@ public class FileManager implements IFileManager{
      * @throws NoSuchElementException the no such element exception
      * @throws JsonParseException     the json parse exception
      * @see Vehicle
-     * @see mainLogic.CollectionManager
      */
     static public HashSet<Vehicle> fillCollectionByFile() throws IOException, FileNotFoundException, NoSuchElementException, JsonParseException {
         try {
             Gson gson = new Gson();
             Type entityType = new TypeToken<HashSet<Vehicle>>() {
             }.getType();
-            FileReader read = new FileReader("data.json");
+            FileReader read = new FileReader("output_collection.json");
             return gson.fromJson(read, entityType);
-        }
-        catch (FileNotFoundException e) {
+        } catch (FileNotFoundException e) {
             System.out.println("Input file does not exist");
-        }
-        catch (NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             System.out.println("input file is empty");
-        }
-        catch (JsonParseException e){
+        } catch (JsonParseException e) {
             System.out.println("collection in file is illegal");
         }
         return new HashSet<Vehicle>();

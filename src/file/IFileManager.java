@@ -1,6 +1,6 @@
 package file;
 
-import data.Vehicle;
+import data.vehiclec.Vehicle;
 
 import java.io.IOException;
 import java.util.HashSet;

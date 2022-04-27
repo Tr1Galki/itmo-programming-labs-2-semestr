@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-04-27T06:13:13</date>
+  <millis>1651029193768</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerConnectionManager</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>Trying to connect</message>
+</record>
+<record>
+  <date>2022-04-27T06:13:16</date>
+  <millis>1651029196241</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerConnectionManager</class>
+  <method>run</method>
+  <thread>13</thread>
+  <message>New user connect</message>
+</record>
+<record>
+  <date>2022-04-27T06:13:59</date>
+  <millis>1651029239478</millis>
+  <sequence>2</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.ServerCollection</class>
+  <method>executeCommand</method>
+  <thread>15</thread>
+  <message>Trying to execute show command</message>
+</record>
+<record>
+  <date>2022-04-27T06:14:04</date>
+  <millis>1651029244374</millis>
+  <sequence>3</sequence>
+  <logger>global</logger>
+  <level>INFO</level>
+  <class>server.MainThread</class>
+  <method>run</method>
+  <thread>15</thread>
+  <message>User Exit. Disconnected</message>
+</record>
+</log>
