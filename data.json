@@ -1,0 +1,26 @@
+[
+  {
+    "id": 0,
+    "name": "1",
+    "coordinates": {
+      "x": 1,
+      "y": 1.0
+    },
+    "creationDate": "Mar 16, 2022 1:00:14 AM",
+    "enginePower": 1,
+    "type": "CAR",
+    "fuelType": "MANPOWER"
+  },
+  {
+    "id": 1,
+    "name": "2",
+    "coordinates": {
+      "x": 2,
+      "y": 2.0
+    },
+    "creationDate": "Mar 16, 2022 1:00:34 AM",
+    "enginePower": 2,
+    "type": "PLANE",
+    "fuelType": "GASOLINE"
+  }
+]
