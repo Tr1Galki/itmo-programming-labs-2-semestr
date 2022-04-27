@@ -4,6 +4,7 @@ import client.UserManager;
 import client.askTools.AskManager;
 import commands.Command;
 import data.vehiclec.Vehicle;
+import server.dataBase.DatabaseManager;
 
 import java.util.HashSet;
 
@@ -31,6 +32,7 @@ public class AddIfMaxCommand extends Command {
         }
 
         if (getVehicle().getCoordinateX() > maxId) {
+            DatabaseManager.addVehicleToDatabase(getVehicle());
             vehicleCollection.add(getVehicle());
             return("Element added✓");
         } else {

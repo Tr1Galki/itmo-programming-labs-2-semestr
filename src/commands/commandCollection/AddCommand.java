@@ -4,6 +4,7 @@ import client.UserManager;
 import client.askTools.AskManager;
 import commands.Command;
 import data.vehiclec.Vehicle;
+import server.dataBase.DatabaseManager;
 
 import java.util.HashSet;
 
@@ -22,6 +23,7 @@ public class AddCommand extends Command {
         Vehicle tempVehicle = getVehicle();
         tempVehicle.setId(getIntArg());
         setVehicle(tempVehicle);
+        DatabaseManager.addVehicleToDatabase(getVehicle());
         vehicleCollection.add(getVehicle());
         return("element added✓");
     }

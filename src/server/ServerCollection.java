@@ -3,6 +3,7 @@ package server;
 import commands.Command;
 import data.vehiclec.Vehicle;
 import file.FileManager;
+import server.dataBase.DatabaseManager;
 
 import java.io.IOException;
 import java.util.Date;
@@ -79,6 +80,10 @@ public class ServerCollection {
             tempVehicleCollection = new HashSet<Vehicle>();
         }
         vehicleCollection = tempVehicleCollection;
+        DatabaseManager.clearDatabase();
+        for (Vehicle vehicle: vehicleCollection){
+            DatabaseManager.addVehicleToDatabase(vehicle);
+        }
     }
 
     /**
@@ -96,6 +101,12 @@ public class ServerCollection {
         thisCommand.setIntArg(this.getId());
         if (thisCommand.getName().equals("info")) {
             thisCommand.setDateArg(this.getCreationDate());
+        }
+        if (thisCommand.getName().equals("add")) {
+            DatabaseManager.clearDatabase();
+            for (Vehicle vehicle: vehicleCollection){
+                DatabaseManager.addVehicleToDatabase(vehicle);
+            }
         }
         return (thisCommand.serverExecute(vehicleCollection));
     }

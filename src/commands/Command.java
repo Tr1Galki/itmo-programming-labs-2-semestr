@@ -1,5 +1,6 @@
 package commands;
 
+import client.UserManager;
 import data.vehiclec.Vehicle;
 
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.util.LinkedList;
  * The type Command.
  */
 public abstract class Command implements Serializable {
+    private String login = UserManager.login;
 
     /**
      * The Name.
@@ -163,5 +165,13 @@ public abstract class Command implements Serializable {
      */
     public void setHistoryCollection(LinkedList<String> historyCollection) {
         this.historyCollection = historyCollection;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
     }
 }

@@ -1,9 +1,12 @@
 package commands.commandCollection;
 
 import commands.Command;
+import data.vehiclec.FuelType;
 import data.vehiclec.Vehicle;
 
 import java.util.HashSet;
+
+import static server.dataBase.DatabaseManager.clearDatabase;
 
 public class ClearCommand extends Command {
 
@@ -14,7 +17,8 @@ public class ClearCommand extends Command {
 
     @Override
     public String serverExecute(HashSet<Vehicle> vehicleCollection) {
-        vehicleCollection.clear();
+        clearDatabase();
+        vehicleCollection.removeIf(thisVehicle -> thisVehicle.getOwnerName().equals(getLogin()));
         return ("Clearing ended✓");
     }
 }

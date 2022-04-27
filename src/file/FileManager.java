@@ -55,7 +55,7 @@ public class FileManager implements IFileManager {
             Gson gson = new Gson();
             Type entityType = new TypeToken<HashSet<Vehicle>>() {
             }.getType();
-            FileReader read = new FileReader("data.json");
+            FileReader read = new FileReader("output_collection.json");
             return gson.fromJson(read, entityType);
         } catch (FileNotFoundException e) {
             System.out.println("Input file does not exist");

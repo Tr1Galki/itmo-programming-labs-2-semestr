@@ -4,6 +4,7 @@ import client.UserManager;
 import client.askTools.AskManager;
 import commands.Command;
 import data.vehiclec.Vehicle;
+import server.dataBase.DatabaseManager;
 
 import java.util.HashSet;
 
@@ -29,7 +30,9 @@ public class UpdateIdCommand extends Command {
         }
 
         if (isId) {
-            vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getId() == Integer.parseInt(getArg())));
+            vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getId() == Integer.parseInt(getArg())) &&
+                    (thisVehicle.getOwnerName().equals(getLogin())));
+            DatabaseManager.addVehicleToDatabase(getVehicle());
             vehicleCollection.add(getVehicle());
             return ("element ID updated✓");
         }

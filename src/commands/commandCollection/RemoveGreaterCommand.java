@@ -20,7 +20,8 @@ public class RemoveGreaterCommand extends Command {
 
     @Override
     public String serverExecute(HashSet<Vehicle> vehicleCollection) {
-        vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getCoordinateX() > getVehicle().getCoordinateX()));
+        vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getCoordinateX() > getVehicle().getCoordinateX())&&
+                (thisVehicle.getOwnerName().equals(getLogin())));
         return("Remove ended✓");
     }
 }

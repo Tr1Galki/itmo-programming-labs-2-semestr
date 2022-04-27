@@ -24,10 +24,11 @@ public class RemoveByIdCommand extends Command {
             }
         }
         if (isId) {
-            vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getId() == id));
+            vehicleCollection.removeIf(thisVehicle -> (thisVehicle.getId() == id) &&
+                    (thisVehicle.getOwnerName().equals(getLogin())));
             return("remove ended✓");
         } else {
-            return("element with this id doesn't exist");
+            return("element with this id doesn't exist or this is not your file");
         }
     }
 }
